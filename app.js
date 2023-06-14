@@ -3,6 +3,7 @@ const app = express();
 const responses = require("./data/real-responses.json");
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: false, limit: '20mb' }));
 
 const identifyRequest = (req, res, next) => {
   const { api_key, images } = req.body;
