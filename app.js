@@ -3,7 +3,8 @@ const app = express();
 const responses = require("./data/real-responses.json");
 const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }))
+app.use(express.json());
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
 
 const identifyRequest = (req, res, next) => {
   const { api_key, images } = req.body;
